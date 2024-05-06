@@ -25,7 +25,28 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement x="352" y="7" width="200" height="20" uuid="e6c08b7f-d08d-4642-817b-14afbca3db0d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Creswave Limited]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="27" width="117" height="59" uuid="045fde6c-0827-4ea2-828c-30f69b5eaa3d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[P.o Box 50548 00515 BuruBuru
++254754001605
+info@creswave.co.ke]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement x="16" y="7" width="111" height="84" uuid="db1bfc66-375b-45a3-b384-9f4e3aa7c46c"/>
+				<imageExpression><![CDATA["./logos.png"]]></imageExpression>
+			</image>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="20" splitType="Stretch">
@@ -63,6 +84,7 @@
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="455" y="0" width="100" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="8ed76aec-2bbd-45fd-8633-097e26abbd69"/>
+				<box rightPadding="5"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
@@ -102,6 +124,7 @@
 			</textField>
 			<textField>
 				<reportElement x="455" y="0" width="100" height="13" uuid="36ccf51e-e96c-4319-8577-aad3124891eb"/>
+				<box rightPadding="5"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial"/>
 				</textElement>
