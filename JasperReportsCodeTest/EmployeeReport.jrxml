@@ -71,6 +71,13 @@ AND Salary BETWEEN $P{RangeFrom} AND $P{RangeTo} ORDER BY Department]]>
 				</textField>
 				<staticText>
 					<reportElement mode="Opaque" x="305" y="20" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="fcec2fce-d737-4a0c-bee6-7e8806c4bc06"/>
+					<box leftPadding="5" rightPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
@@ -78,6 +85,13 @@ AND Salary BETWEEN $P{RangeFrom} AND $P{RangeTo} ORDER BY Department]]>
 				</staticText>
 				<staticText>
 					<reportElement mode="Opaque" x="75" y="20" width="81" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="d5e8cf22-2c8c-4e74-a9f4-993f430c419c"/>
+					<box leftPadding="5" rightPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
@@ -85,6 +99,13 @@ AND Salary BETWEEN $P{RangeFrom} AND $P{RangeTo} ORDER BY Department]]>
 				</staticText>
 				<staticText>
 					<reportElement mode="Opaque" x="155" y="20" width="151" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="2958f875-075f-43e5-bbb6-4990831a569f"/>
+					<box leftPadding="5" rightPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
@@ -92,7 +113,13 @@ AND Salary BETWEEN $P{RangeFrom} AND $P{RangeTo} ORDER BY Department]]>
 				</staticText>
 				<staticText>
 					<reportElement mode="Opaque" x="380" y="20" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="734cd88b-6ddc-461a-a6a1-5d560b051994"/>
-					<box rightPadding="0"/>
+					<box leftPadding="5" rightPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
@@ -100,6 +127,13 @@ AND Salary BETWEEN $P{RangeFrom} AND $P{RangeTo} ORDER BY Department]]>
 				</staticText>
 				<staticText>
 					<reportElement mode="Opaque" x="0" y="20" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="51b0e341-9a8d-4399-9f55-311cb3d016ad"/>
+					<box leftPadding="5" rightPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
@@ -107,7 +141,13 @@ AND Salary BETWEEN $P{RangeFrom} AND $P{RangeTo} ORDER BY Department]]>
 				</staticText>
 				<staticText>
 					<reportElement mode="Opaque" x="455" y="20" width="100" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="a213f0d6-1f48-4da3-8884-723c587d3a7a"/>
-					<box rightPadding="5"/>
+					<box leftPadding="5" rightPadding="5">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
@@ -184,6 +224,7 @@ info@creswave.co.ke]]></text>
 		<band height="28" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="75" height="13" uuid="b8bccc4b-af8d-4d17-b94b-09ca9e17deb5"/>
+				<box leftPadding="5" rightPadding="5"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
@@ -191,6 +232,7 @@ info@creswave.co.ke]]></text>
 			</textField>
 			<textField>
 				<reportElement x="155" y="0" width="151" height="13" uuid="52117937-04a5-49d0-82fc-5110d89ee19f"/>
+				<box leftPadding="5" rightPadding="5"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
@@ -198,6 +240,7 @@ info@creswave.co.ke]]></text>
 			</textField>
 			<textField>
 				<reportElement x="305" y="0" width="75" height="13" uuid="17d442ba-ba67-41ca-a48e-cd73bb8470ae"/>
+				<box leftPadding="5" rightPadding="5"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
@@ -205,7 +248,7 @@ info@creswave.co.ke]]></text>
 			</textField>
 			<textField pattern="#,##0.00">
 				<reportElement x="455" y="0" width="100" height="13" uuid="36ccf51e-e96c-4319-8577-aad3124891eb"/>
-				<box rightPadding="5"/>
+				<box leftPadding="5" rightPadding="5"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial"/>
 				</textElement>
@@ -213,6 +256,7 @@ info@creswave.co.ke]]></text>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement x="76" y="0" width="80" height="13" uuid="bb17f3aa-0033-4905-b3ee-fb8a9964eea6"/>
+				<box leftPadding="5" rightPadding="5"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
@@ -234,6 +278,7 @@ info@creswave.co.ke]]></text>
 			</subreport>
 			<textField pattern="#,##0.00">
 				<reportElement x="380" y="0" width="75" height="13" uuid="d883d44e-da22-4c61-a0b8-75ea14653a0c"/>
+				<box leftPadding="5" rightPadding="5"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial"/>
 				</textElement>
@@ -260,10 +305,10 @@ info@creswave.co.ke]]></text>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="172" splitType="Stretch">
+		<band height="195" splitType="Stretch">
 			<pieChart>
 				<chart>
-					<reportElement x="0" y="10" width="352" height="162" uuid="3b29793b-72b9-4cbc-88e9-17e43472fe2c"/>
+					<reportElement x="2" y="20" width="352" height="162" uuid="3b29793b-72b9-4cbc-88e9-17e43472fe2c"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
@@ -277,6 +322,13 @@ info@creswave.co.ke]]></text>
 					<itemLabel/>
 				</piePlot>
 			</pieChart>
+			<staticText>
+				<reportElement x="2" y="0" width="351" height="20" uuid="46cb466d-ecd6-4ed6-beb5-b9923958fda1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Distribution Of Employees By department,]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>
