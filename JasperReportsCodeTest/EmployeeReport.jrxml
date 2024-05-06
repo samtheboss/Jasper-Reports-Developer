@@ -2,8 +2,8 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EmployeeReport.jrxml" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e6673030-9242-4fbe-b4ad-4b9b3c84a346">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
-	<parameter name="Department" class="java.lang.String">
+	<property name="ireport.y" value="173"/>
+	<parameter name="Departments" class="java.util.List">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="RangeFrom" class="java.lang.Double">
@@ -14,7 +14,10 @@
 		<defaultValueExpression><![CDATA["E:\\new\\New Volume\\projects\\Jasper developer\\Jasper-Reports-Developer\\JasperReportsCodeTest\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select * from Employees order by department]]>
+		<![CDATA[SELECT *
+FROM Employees
+WHERE $X{IN, Department, Departments}
+AND Salary BETWEEN $P{RangeFrom} AND $P{RangeTo} ORDER BY Department]]>
 	</queryString>
 	<field name="EmployeeID" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -45,6 +48,15 @@
 	</variable>
 	<variable name="SumSalary" class="java.math.BigDecimal" resetType="Group" resetGroup="Department" calculation="Sum">
 		<variableExpression><![CDATA[$F{Salary}]]></variableExpression>
+	</variable>
+	<variable name="countEmp" class="java.lang.Integer" resetType="Group" resetGroup="Department" calculation="Count">
+		<variableExpression><![CDATA[$F{EmployeeID}]]></variableExpression>
+	</variable>
+	<variable name="sumSalary" class="java.lang.Double" resetType="Group" resetGroup="Department" calculation="Sum">
+		<initialValueExpression><![CDATA[$F{Salary}]]></initialValueExpression>
+	</variable>
+	<variable name="avgSalaryByDepartment" class="java.lang.String">
+		<variableExpression><![CDATA[$V{sumSalary}/$V{countEmp}]]></variableExpression>
 	</variable>
 	<group name="Department">
 		<groupExpression><![CDATA[$F{Department}]]></groupExpression>
@@ -248,6 +260,23 @@ info@creswave.co.ke]]></text>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="172" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="0" y="10" width="352" height="162" uuid="3b29793b-72b9-4cbc-88e9-17e43472fe2c"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{Department}]]></keyExpression>
+					<valueExpression><![CDATA[$V{countEmp}]]></valueExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
 	</summary>
 </jasperReport>
