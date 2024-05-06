@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EmployeeReport.jrxml" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e6673030-9242-4fbe-b4ad-4b9b3c84a346">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="17"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="Department" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -14,12 +14,21 @@
 		<defaultValueExpression><![CDATA["E:\\new\\New Volume\\projects\\Jasper developer\\Jasper-Reports-Developer\\JasperReportsCodeTest\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select * from Employees where Department=$P{Department} and salary between $P{RangeFrom} and $P{RangeTo}]]>
+		<![CDATA[select * from Employees order by department]]>
 	</queryString>
 	<field name="EmployeeID" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="EmployeeName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Phone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Address" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="Department" class="java.lang.String">
@@ -34,6 +43,90 @@
 	<variable name="calculateBonus" class="java.lang.Double">
 		<variableExpression><![CDATA[$F{Salary}*0.1]]></variableExpression>
 	</variable>
+	<variable name="SumSalary" class="java.math.BigDecimal" resetType="Group" resetGroup="Department" calculation="Sum">
+		<variableExpression><![CDATA[$F{Salary}]]></variableExpression>
+	</variable>
+	<group name="Department">
+		<groupExpression><![CDATA[$F{Department}]]></groupExpression>
+		<groupHeader>
+			<band height="35">
+				<textField>
+					<reportElement mode="Opaque" x="0" y="1" width="171" height="20" forecolor="#FFFFFF" backcolor="#12609E" uuid="91b12633-c06d-4500-b69e-21700fa5998c"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Department}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="305" y="20" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="fcec2fce-d737-4a0c-bee6-7e8806c4bc06"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Department]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="75" y="20" width="81" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="d5e8cf22-2c8c-4e74-a9f4-993f430c419c"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Hire Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="155" y="20" width="151" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="2958f875-075f-43e5-bbb6-4990831a569f"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Employee Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="380" y="20" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="734cd88b-6ddc-461a-a6a1-5d560b051994"/>
+					<box rightPadding="0"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Bonus]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="20" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="51b0e341-9a8d-4399-9f55-311cb3d016ad"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Employee ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="455" y="20" width="100" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="a213f0d6-1f48-4da3-8884-723c587d3a7a"/>
+					<box rightPadding="5"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Salary]]></text>
+				</staticText>
+				<line>
+					<reportElement x="1" y="34" width="555" height="1" uuid="79ce09f1-8eb2-4305-b01b-ede99cfe8816"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="23">
+				<textField pattern="#,##0.00">
+					<reportElement x="452" y="0" width="100" height="20" uuid="a3736102-19c4-4d63-ba47-6483faad3e69"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{SumSalary}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="432" y="18" width="120" height="1" uuid="b2376386-bfd0-4e0c-b2e1-5a6d5f9aec20"/>
+				</line>
+				<line>
+					<reportElement x="432" y="22" width="120" height="1" uuid="9e9214a9-8fc3-48a5-bd2c-90c10387e7dd"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -73,55 +166,10 @@ info@creswave.co.ke]]></text>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="14" splitType="Stretch">
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="a0d9a191-8f98-4e63-b259-76b818945af4"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Employee ID]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="155" y="0" width="151" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="12da3c50-129d-468b-9116-69e1806930d4"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Employee Name]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="305" y="0" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="379d122f-c4c2-4975-b24a-c5d05aa424b1"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Department]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="455" y="0" width="100" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="8ed76aec-2bbd-45fd-8633-097e26abbd69"/>
-				<box rightPadding="5"/>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Salary]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="76" y="0" width="80" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="df2230a2-d374-4301-853a-abe24cbb5c42"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Hire Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="380" y="0" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="00eb4835-d9cf-49ab-a83c-56deb4802498"/>
-				<box rightPadding="0"/>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Bonus]]></text>
-			</staticText>
-		</band>
+		<band height="14" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="32" splitType="Stretch">
+		<band height="28" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="75" height="13" uuid="b8bccc4b-af8d-4d17-b94b-09ca9e17deb5"/>
 				<textElement>
@@ -165,7 +213,7 @@ info@creswave.co.ke]]></text>
 				</graphicElement>
 			</line>
 			<subreport>
-				<reportElement x="0" y="13" width="552" height="10" uuid="0a6ab02b-2353-4bd9-94f5-957d71084689"/>
+				<reportElement x="75" y="13" width="477" height="10" uuid="0a6ab02b-2353-4bd9-94f5-957d71084689"/>
 				<subreportParameter name="EmployeeId">
 					<subreportParameterExpression><![CDATA[$F{EmployeeID}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -181,11 +229,23 @@ info@creswave.co.ke]]></text>
 			</textField>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="436" y="0" width="80" height="20" uuid="d680b1fd-d0e3-4fef-8e73-730955b9ebf3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="516" y="0" width="40" height="20" uuid="be3f09e7-bb13-4aef-b2e1-a4ba608300aa"/>
+				<textElement>
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>
