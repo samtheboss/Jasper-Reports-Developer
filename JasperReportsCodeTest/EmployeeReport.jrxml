@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EmployeeReport.jrxml" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e6673030-9242-4fbe-b4ad-4b9b3c84a346">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="17"/>
 	<parameter name="Department" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -31,6 +31,9 @@
 	<field name="HireDate" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<variable name="calculateBonus" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{Salary}*0.1]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -72,21 +75,21 @@ info@creswave.co.ke]]></text>
 	<columnHeader>
 		<band height="14" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="100" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="a0d9a191-8f98-4e63-b259-76b818945af4"/>
+				<reportElement mode="Opaque" x="0" y="0" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="a0d9a191-8f98-4e63-b259-76b818945af4"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Employee ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="180" y="0" width="175" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="12da3c50-129d-468b-9116-69e1806930d4"/>
+				<reportElement mode="Opaque" x="155" y="0" width="151" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="12da3c50-129d-468b-9116-69e1806930d4"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Employee Name]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="355" y="0" width="100" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="379d122f-c4c2-4975-b24a-c5d05aa424b1"/>
+				<reportElement mode="Opaque" x="305" y="0" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="379d122f-c4c2-4975-b24a-c5d05aa424b1"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -101,38 +104,46 @@ info@creswave.co.ke]]></text>
 				<text><![CDATA[Salary]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="100" y="0" width="80" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="df2230a2-d374-4301-853a-abe24cbb5c42"/>
+				<reportElement mode="Opaque" x="76" y="0" width="80" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="df2230a2-d374-4301-853a-abe24cbb5c42"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Hire Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="0" width="75" height="14" forecolor="#FFFFFF" backcolor="#12609E" uuid="00eb4835-d9cf-49ab-a83c-56deb4802498"/>
+				<box rightPadding="0"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bonus]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="32" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="13" uuid="b8bccc4b-af8d-4d17-b94b-09ca9e17deb5"/>
+				<reportElement x="0" y="0" width="75" height="13" uuid="b8bccc4b-af8d-4d17-b94b-09ca9e17deb5"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{EmployeeID}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="180" y="0" width="175" height="13" uuid="52117937-04a5-49d0-82fc-5110d89ee19f"/>
+				<reportElement x="155" y="0" width="151" height="13" uuid="52117937-04a5-49d0-82fc-5110d89ee19f"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{EmployeeName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="355" y="0" width="100" height="13" uuid="17d442ba-ba67-41ca-a48e-cd73bb8470ae"/>
+				<reportElement x="305" y="0" width="75" height="13" uuid="17d442ba-ba67-41ca-a48e-cd73bb8470ae"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Department}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="#,##0.00">
 				<reportElement x="455" y="0" width="100" height="13" uuid="36ccf51e-e96c-4319-8577-aad3124891eb"/>
 				<box rightPadding="5"/>
 				<textElement textAlignment="Right">
@@ -141,7 +152,7 @@ info@creswave.co.ke]]></text>
 				<textFieldExpression><![CDATA[$F{Salary}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="100" y="0" width="80" height="13" uuid="bb17f3aa-0033-4905-b3ee-fb8a9964eea6"/>
+				<reportElement x="76" y="0" width="80" height="13" uuid="bb17f3aa-0033-4905-b3ee-fb8a9964eea6"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
@@ -161,6 +172,13 @@ info@creswave.co.ke]]></text>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EmployeeDetailsSubreport.jasper"]]></subreportExpression>
 			</subreport>
+			<textField pattern="#,##0.00">
+				<reportElement x="380" y="0" width="75" height="13" uuid="d883d44e-da22-4c61-a0b8-75ea14653a0c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{calculateBonus}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
