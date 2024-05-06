@@ -10,6 +10,9 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="RangeTo" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["E:\\new\\New Volume\\projects\\Jasper developer\\Jasper-Reports-Developer\\JasperReportsCodeTest\\"]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[select * from Employees where Department=$P{Department} and salary between $P{RangeFrom} and $P{RangeTo}]]>
 	</queryString>
@@ -107,7 +110,7 @@ info@creswave.co.ke]]></text>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="16" splitType="Stretch">
+		<band height="32" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="100" height="13" uuid="b8bccc4b-af8d-4d17-b94b-09ca9e17deb5"/>
 				<textElement>
@@ -145,11 +148,19 @@ info@creswave.co.ke]]></text>
 				<textFieldExpression><![CDATA[$F{HireDate}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="15" width="555" height="1" uuid="6b20b995-4aa7-446d-ae1c-047dffe714d2"/>
+				<reportElement x="0" y="27" width="555" height="1" uuid="6b20b995-4aa7-446d-ae1c-047dffe714d2"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
+			<subreport>
+				<reportElement x="0" y="13" width="552" height="10" uuid="0a6ab02b-2353-4bd9-94f5-957d71084689"/>
+				<subreportParameter name="EmployeeId">
+					<subreportParameterExpression><![CDATA[$F{EmployeeID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EmployeeDetailsSubreport.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 	</detail>
 	<columnFooter>
